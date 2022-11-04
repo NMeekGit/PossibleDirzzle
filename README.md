@@ -1,7 +1,7 @@
 # PossibleDirzzle
 3D Project. Risk of Rain Clone
 
-Current TODO:
+## Current TODO
 ---
 
-- [] Load World
+- [ ] Load World

@@ -5,3 +5,9 @@
 ---
 
 - [ ] Load World
+- [ ] Player Input Controller
+- [ ] Enemy AI
+- [ ] Weapon Functionality
+- [ ] Currency Drop
+- [ ] PowerUp Drop
+- [ ] PowerUp Calculations

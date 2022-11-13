@@ -1,0 +1,150 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerStateMachine : MonoBehaviour
+{
+    PlayerInput playerInput;
+    CharacterController characterController;
+    Animator animator;
+
+    int isWalkingHash;
+    int isRunningHash;
+    int isJumpingHash;
+
+    Vector2 currentMovementInput;
+    Vector3 currentMovement;
+    Vector3 currentRunMovement;
+    Vector3 appliedMovement;
+    bool isMovementPressed;
+    bool isRunPressed;
+    public float rotationFactorPerFrame = 15.0f;
+    public float speed = 5.0f;
+    public float runMultiplier = 3.0f;
+
+    bool isJumpPressed = false;
+    float initialJumpVelocity;
+    public float maxJumpHeight = 2;
+    public float maxJumpTime = 0.5f;
+    bool isJumping = false;
+    bool requireNewJumpPress = false;
+    float gravity = -9.8f;
+    float groundedGravity = -0.5f;
+
+    PlayerBaseState _currentState;
+    PlayerStateFactory _states;
+
+    public PlayerBaseState CurrentState { get { return _currentState;  } set { _currentState = value; } }
+    public CharacterController CharacterController { get { return characterController; } }
+    public Animator Animator {get { return animator; } }
+    public int IsJumpingHash { get { return isJumpingHash; } }
+    public int IsWalkingHash { get { return isWalkingHash; } }
+    public int IsRunningHash { get { return isRunningHash; } }
+    public bool RequireNewJumpPress { get { return requireNewJumpPress; } set { requireNewJumpPress = value; } }
+    public bool IsJumping { set { isJumping = value; } }
+    public bool IsJumpPressed { get { return isJumpPressed; } }
+    public bool IsMovementPressed { get { return isMovementPressed; } }
+    public bool IsRunPressed { get { return isRunPressed; } }
+    public Vector2 CurrentMovementInput { get { return currentMovementInput; } }
+    public float CurrentMovementY { get { return currentMovement.y; } set { currentMovement.y = value; } }
+    public float AppliedMovementY { get { return appliedMovement.y; } set { appliedMovement.y = value; } }
+    public float AppliedMovementX { get { return appliedMovement.x; } set { appliedMovement.x = value; } }
+    public float AppliedMovementZ { get { return appliedMovement.z; } set { appliedMovement.z = value; } }
+    public float RunMultiplier { get { return runMultiplier; } }
+    public float InitialJumpVelocity { get { return initialJumpVelocity; } }
+    public float GroundedGravity { get { return groundedGravity; } }
+    public float Gravity { get { return gravity; } }
+
+    void Awake()
+    {
+        playerInput = new PlayerInput();
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
+        _states = new PlayerStateFactory(this);
+        _currentState = _states.Grounded();
+        _currentState.EnterState();
+
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isJumpingHash = Animator.StringToHash("isJumping");
+
+        playerInput.PlayerController.Move.started += OnMovementInput;
+        playerInput.PlayerController.Move.canceled += OnMovementInput;
+        playerInput.PlayerController.Move.performed += OnMovementInput;
+        playerInput.PlayerController.Run.started += OnRun;
+        playerInput.PlayerController.Run.canceled += OnRun;
+        playerInput.PlayerController.Jump.started += OnJump;
+        playerInput.PlayerController.Jump.canceled += OnJump;
+
+        SetupJumpVariables();
+    }
+
+    void SetupJumpVariables()
+    {
+        float timeToApex = maxJumpTime / 2;
+        gravity = (-2 * maxJumpHeight) / Mathf.Pow(timeToApex, 2);
+        initialJumpVelocity = (2 * maxJumpHeight) / timeToApex;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+    
+    // Update is called once per frame
+    void Update()
+    {
+        HandleRotation();
+        _currentState.UpdateStates();
+        characterController.Move(appliedMovement * Time.deltaTime);
+    }
+
+    void HandleRotation()
+    {
+        Vector3 positionToLookAt;
+
+        positionToLookAt.x = currentMovement.x;
+        positionToLookAt.y = 0.0f;
+        positionToLookAt.z = currentMovement.z;
+
+        Quaternion currentRotation = transform.rotation;
+
+        if (isMovementPressed) {
+            Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
+            Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
+        }
+    }
+
+    void OnJump(InputAction.CallbackContext context)
+    {
+        isJumpPressed = context.ReadValueAsButton();
+        requireNewJumpPress = false;
+    }
+    void OnRun(InputAction.CallbackContext context)
+    {
+        isRunPressed = context.ReadValueAsButton();
+    }
+    void OnMovementInput (InputAction.CallbackContext context)
+    {
+        currentMovementInput = context.ReadValue<Vector2>();
+        currentMovement.x = currentMovementInput.x * speed;
+        currentMovement.z = currentMovementInput.y * speed;
+        currentRunMovement.x = currentMovementInput.x * runMultiplier;
+        currentRunMovement.z = currentMovementInput.y * runMultiplier;
+        isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
+    }
+
+    void OnEnable()
+    {
+        playerInput.PlayerController.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerInput.PlayerController.Disable();
+    }
+}
+

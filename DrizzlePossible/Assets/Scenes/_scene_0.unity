@@ -189,23 +189,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100124, guid: 535511bb156e7f54f83f305d96a1c4ce, type: 3}
   m_PrefabInstance: {fileID: 237577252}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &408936651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408936648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbab61ab86e54c94989817e0af49a6fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationFactorPerFrame: 15
-  speed: 5
-  runMultiplier: 3
-  maxJumpHeight: 5
-  maxJumpTime: 1
 --- !u!143 &408936652
 CharacterController:
   m_ObjectHideFlags: 0
@@ -224,6 +207,23 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &408936655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408936648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4816127a65c6bc49915af552a4fe239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationFactorPerFrame: 15
+  speed: 5
+  runMultiplier: 3
+  maxJumpHeight: 2
+  maxJumpTime: 0.5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

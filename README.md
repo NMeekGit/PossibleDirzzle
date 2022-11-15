@@ -5,9 +5,10 @@
 ---
 
 - [ ] Load World
-- [ ] Player Input Controller
+- [x] Player Input Controller
 - [ ] Enemy AI
 - [ ] Weapon Functionality
 - [ ] Currency Drop
 - [ ] PowerUp Drop
 - [ ] PowerUp Calculations
+- [ ] Camera Movement

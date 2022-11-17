@@ -307,10 +307,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_BindingMode: 4
 =======
   m_BindingMode: 5
 >>>>>>> parent of df208ce (Camera: Done-ish...Fixed animation angle)
+=======
+  m_BindingMode: 5
+>>>>>>> parent of 278448d (Before Merge: 11/16)
   m_FollowOffset: {x: 0, y: 3, z: -7.4}
   m_XDamping: 1
   m_YDamping: 1
@@ -1218,10 +1222,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_BindingMode: 4
 =======
   m_BindingMode: 5
 >>>>>>> parent of df208ce (Camera: Done-ish...Fixed animation angle)
+=======
+  m_BindingMode: 5
+>>>>>>> parent of 278448d (Before Merge: 11/16)
   m_FollowOffset: {x: 0, y: 3, z: -7.4}
   m_XDamping: 1
   m_YDamping: 1
@@ -1456,10 +1464,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_BindingMode: 4
 =======
   m_BindingMode: 5
 >>>>>>> parent of df208ce (Camera: Done-ish...Fixed animation angle)
+=======
+  m_BindingMode: 5
+>>>>>>> parent of 278448d (Before Merge: 11/16)
   m_FollowOffset: {x: 0, y: 3, z: -7.4}
   m_XDamping: 1
   m_YDamping: 1

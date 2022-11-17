@@ -16,6 +16,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void UpdateState(){
         CheckSwitchStates();
+        CheckFireState();
     }
 
     public override void ExitState(){}
@@ -27,6 +28,21 @@ public class PlayerIdleState : PlayerBaseState
             SwitchState(Factory.Run());
         } else if (Ctx.IsMovementPressed) {
             SwitchState(Factory.Walk());
+        }
+    }
+    public void CheckFireState() {
+        if (Ctx.IsShootingPressed && (Time.time > Ctx.NextFire)) {
+            Ctx.NextFire = Time.time + Ctx.FireRate;
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(Ctx.BulletPrefab, Ctx.FirePointTransform.position, Quaternion.identity, Ctx.BulletParent);
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (Physics.Raycast(Ctx.CameraTransform.position, Ctx.CameraTransform.forward, out hit, Mathf.Infinity)) {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }
+            else {
+                bulletController.target = Ctx.CameraTransform.position + Ctx.CameraTransform.forward * 25f;
+            }
         }
     }
 }

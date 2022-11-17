@@ -9,6 +9,11 @@ public class PlayerStateMachine : MonoBehaviour
     CharacterController characterController;
     Animator animator;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public Transform bulletParent;
+    public Camera cam;
+
     int isWalkingHash;
     int isRunningHash;
     int isJumpingHash;
@@ -20,6 +25,7 @@ public class PlayerStateMachine : MonoBehaviour
     Vector3 cameraRelativeMovement;
     bool isMovementPressed;
     bool isRunPressed;
+    bool isShootingPressed;
     public float rotationFactorPerFrame = 15.0f;
     public float speed = 5.0f;
     public float runMultiplier = 3.0f;
@@ -32,13 +38,19 @@ public class PlayerStateMachine : MonoBehaviour
     bool requireNewJumpPress = false;
     float gravity = -9.8f;
     float groundedGravity = -0.5f;
+    public float fireRate = .5f;
+    float nextFire;
 
     PlayerBaseState _currentState;
     PlayerStateFactory _states;
 
     public PlayerBaseState CurrentState { get { return _currentState;  } set { _currentState = value; } }
     public CharacterController CharacterController { get { return characterController; } }
-    public Animator Animator {get { return animator; } }
+    public Animator Animator { get { return animator; } }
+    public GameObject BulletPrefab { get { return bulletPrefab; } }
+    public Transform FirePointTransform { get { return firePoint; } }
+    public Transform BulletParent { get { return bulletParent; } }
+    public Transform CameraTransform { get { return cam.transform; } }
     public int IsJumpingHash { get { return isJumpingHash; } }
     public int IsWalkingHash { get { return isWalkingHash; } }
     public int IsRunningHash { get { return isRunningHash; } }
@@ -47,6 +59,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsJumpPressed { get { return isJumpPressed; } }
     public bool IsMovementPressed { get { return isMovementPressed; } }
     public bool IsRunPressed { get { return isRunPressed; } }
+    public bool IsShootingPressed { get { return isShootingPressed; } }
     public Vector2 CurrentMovementInput { get { return currentMovementInput; } }
     public float CurrentMovementY { get { return currentMovement.y; } set { currentMovement.y = value; } }
     public float AppliedMovementY { get { return appliedMovement.y; } set { appliedMovement.y = value; } }
@@ -56,6 +69,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float InitialJumpVelocity { get { return initialJumpVelocity; } }
     public float GroundedGravity { get { return groundedGravity; } }
     public float Gravity { get { return gravity; } }
+    public float NextFire { get { return nextFire; } set { nextFire = value; } }
+    public float FireRate { get { return fireRate; } }
 
     void Awake()
     {
@@ -78,6 +93,8 @@ public class PlayerStateMachine : MonoBehaviour
         playerInput.PlayerController.Run.canceled += OnRun;
         playerInput.PlayerController.Jump.started += OnJump;
         playerInput.PlayerController.Jump.canceled += OnJump;
+        playerInput.PlayerController.Fire.started += OnShoot;
+        playerInput.PlayerController.Fire.canceled += OnShoot;
 
         SetupJumpVariables();
     }
@@ -160,6 +177,10 @@ public class PlayerStateMachine : MonoBehaviour
         currentRunMovement.x = currentMovementInput.x * runMultiplier;
         currentRunMovement.z = currentMovementInput.y * runMultiplier;
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
+    }
+    void OnShoot(InputAction.CallbackContext context)
+    {
+        isShootingPressed = context.ReadValueAsButton();
     }
 
     void OnEnable()

@@ -17,7 +17,6 @@ public class PlayerStateMachine : MonoBehaviour
     Vector3 currentMovement;
     Vector3 currentRunMovement;
     Vector3 appliedMovement;
-    Vector3 cameraRelativeMovement;
     bool isMovementPressed;
     bool isRunPressed;
     public float rotationFactorPerFrame = 15.0f;
@@ -100,46 +99,22 @@ public class PlayerStateMachine : MonoBehaviour
     {
         HandleRotation();
         _currentState.UpdateStates();
-
-        cameraRelativeMovement = ConvertToCameraSpace(appliedMovement);
-        characterController.Move(cameraRelativeMovement * Time.deltaTime);
-    }
-
-    Vector3 ConvertToCameraSpace(Vector3 vectorToRotate) 
-    {
-        float currentYValue = vectorToRotate.y;
-
-        Vector3 cameraForward = Camera.main.transform.forward;
-        Vector3 cameraRight = Camera.main.transform.right;
-
-        cameraForward.y = 0;
-        cameraRight.y = 0;
-
-        cameraForward = cameraForward.normalized;
-        cameraRight = cameraRight.normalized;
-
-        Vector3 cameraForwardZProduct = vectorToRotate.z * cameraForward;
-        Vector3 cameraRightXProduct = vectorToRotate.x * cameraRight;
-
-        Vector3 vectorRotatedToCameraSpace = cameraForwardZProduct + cameraRightXProduct;
-        vectorRotatedToCameraSpace.y = currentYValue;
-
-        return vectorRotatedToCameraSpace;
+        characterController.Move(appliedMovement * Time.deltaTime);
     }
 
     void HandleRotation()
     {
         Vector3 positionToLookAt;
 
-        positionToLookAt.x = cameraRelativeMovement.x;
+        positionToLookAt.x = currentMovement.x;
         positionToLookAt.y = 0.0f;
-        positionToLookAt.z = cameraRelativeMovement.z;
+        positionToLookAt.z = currentMovement.z;
 
         Quaternion currentRotation = transform.rotation;
 
         if (isMovementPressed) {
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
+            Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
         }
     }
 

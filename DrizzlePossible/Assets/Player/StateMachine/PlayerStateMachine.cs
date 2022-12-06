@@ -26,6 +26,7 @@ public class PlayerStateMachine : MonoBehaviour
     bool isMovementPressed;
     bool isRunPressed;
     bool isShootingPressed;
+    bool isSelectPressed;
     public float rotationFactorPerFrame = 15.0f;
     public float speed = 5.0f;
     public float runMultiplier = 3.0f;
@@ -60,6 +61,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsMovementPressed { get { return isMovementPressed; } }
     public bool IsRunPressed { get { return isRunPressed; } }
     public bool IsShootingPressed { get { return isShootingPressed; } }
+    public bool IsSelectPressed {get { return isSelectPressed; } }
     public Vector2 CurrentMovementInput { get { return currentMovementInput; } }
     public float CurrentMovementY { get { return currentMovement.y; } set { currentMovement.y = value; } }
     public float AppliedMovementY { get { return appliedMovement.y; } set { appliedMovement.y = value; } }
@@ -95,6 +97,8 @@ public class PlayerStateMachine : MonoBehaviour
         playerInput.PlayerController.Jump.canceled += OnJump;
         playerInput.PlayerController.Fire.started += OnShoot;
         playerInput.PlayerController.Fire.canceled += OnShoot;
+        playerInput.PlayerController.Select.started += OnSelect;
+        playerInput.PlayerController.Select.canceled += OnSelect;
 
         SetupJumpVariables();
     }
@@ -181,6 +185,11 @@ public class PlayerStateMachine : MonoBehaviour
     void OnShoot(InputAction.CallbackContext context)
     {
         isShootingPressed = context.ReadValueAsButton();
+    }
+
+    void OnSelect(InputAction.CallbackContext context)
+    {
+        isSelectPressed = context.ReadValueAsButton();
     }
 
     void OnEnable()

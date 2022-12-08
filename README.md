@@ -7,8 +7,9 @@
 - [ ] Load World
 - [x] Player Input Controller
 - [ ] Enemy AI
-- [ ] Weapon Functionality
+- [x] Weapon Functionality
 - [ ] Currency Drop
 - [ ] PowerUp Drop
 - [ ] PowerUp Calculations
-- [ ] Camera Movement
+- [x] Camera Movement
+- [x] Item Interaction

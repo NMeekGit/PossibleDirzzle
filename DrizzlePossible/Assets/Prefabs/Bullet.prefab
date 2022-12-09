@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9101516357412202707}
   - component: {fileID: 4162737258855391708}
   - component: {fileID: 5851636053849159097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,5 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDecal: {fileID: 4230107399391331712, guid: a4c8242f3ff5d35768250fed193cadf6, type: 3}
-  bulletDecalParent: {fileID: 4613424431366654091, guid: 71995847def2cff4bbace8f4dff40d76, type: 3}
   speed: 50

@@ -68,6 +68,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float AppliedMovementX { get { return appliedMovement.x; } set { appliedMovement.x = value; } }
     public float AppliedMovementZ { get { return appliedMovement.z; } set { appliedMovement.z = value; } }
     public float RunMultiplier { get { return runMultiplier; } }
+    public float Speed { get { return speed; } }
     public float InitialJumpVelocity { get { return initialJumpVelocity; } }
     public float GroundedGravity { get { return groundedGravity; } }
     public float Gravity { get { return gravity; } }

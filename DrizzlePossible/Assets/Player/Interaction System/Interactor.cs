@@ -12,6 +12,9 @@ public class Interactor : MonoBehaviour
     public LayerMask _interactableMask;
     public InteractionPromptUI _interactionPromptUI;
 
+    public float waitTime = 1f;
+    float nextTime;
+
     private readonly Collider[] _colliders = new Collider[3];
     public int _numFound;
 
@@ -32,7 +35,11 @@ public class Interactor : MonoBehaviour
 
                     if(!_interactable.IsOpen) {
                         _interactable.Open();
+                        nextTime = Time.time + waitTime;
                     }
+                }
+                if (_playerMachine.IsSelectPressed && _interactable.IsOpen && Time.time > nextTime) {
+                    _interactable.Grab();
                 }
             }
         } else {

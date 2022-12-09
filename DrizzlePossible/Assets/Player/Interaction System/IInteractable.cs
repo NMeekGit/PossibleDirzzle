@@ -8,5 +8,6 @@ public interface IInteractable
     public bool IsOpen { get; }
 
     public void Open();
+    public void Grab();
     public bool Interact (Interactor interactor);
 }

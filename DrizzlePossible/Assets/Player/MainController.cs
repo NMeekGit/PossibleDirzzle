@@ -13,6 +13,8 @@ public class MainController : MonoBehaviour
     private string _itemName;
     private bool _isGrabbing;
     [SerializeField] private PlayerStateMachine _player;
+    [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private ItemTracker _itemTracker;
     [SerializeField] private Apple _apple;
     [SerializeField] private Bacon _bacon;
     [SerializeField] private Pizza _pizza;
@@ -31,6 +33,8 @@ public class MainController : MonoBehaviour
             itemList.Add(Instantiate(_items[num], _spawnPoints[_count].position, Quaternion.identity, _spawnPoints[_count]));
             _count++;
         }
+
+        _healthBar.SetHealth();
     }
 
     void UniqueNums() {
@@ -42,6 +46,8 @@ public class MainController : MonoBehaviour
     void Update() {
 
         CheckItem();
+        _healthBar.SetHealth();
+        _itemTracker.SetItemCount();
     }
 
     void CheckItem() {
@@ -65,12 +71,15 @@ public class MainController : MonoBehaviour
                 break;
             case "Bacon":
                 _player.Speed += _player.Speed * _bacon.ApplyPowerUp;
+                _itemTracker.NumBacon += 1;
                 break;
             case "Cupcake":
                 _player.FireRate *= _cupcake.ApplyPowerUp;
+                _itemTracker.NumCupcake += 1;
                 break;
             case "Pizza":
                 _damage = _pizza.ApplyPowerUp;
+                _itemTracker.NumPizza += 1;
                 break;
             default:
                 break;

@@ -344,7 +344,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132124480}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.5, y: 3, z: 2.5}
@@ -368,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 132124482}
   _item: {fileID: 627074052}
+  _mainController: {fileID: 963194230}
   _interactionPrompt: '[E]'
 --- !u!54 &132124486
 Rigidbody:
@@ -890,7 +891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408849578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1958, y: 0.7471, z: 5.97}
+  m_LocalPosition: {x: -0.1958, y: 0.7471, z: 9.8}
   m_LocalScale: {x: 6.5496697, y: 1.5058, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -959,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8442496bd2f026ba807f51b355c3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainController: {fileID: 963194230}
   _playerMachine: {fileID: 408936655}
   _interactionPoint: {fileID: 408936657}
   _interactionPointRadius: 1
@@ -1008,7 +1010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448866866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.396, z: 0.08400012}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0.08400012}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1479,7 +1481,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796928425}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.5, y: 3, z: 2.5}
@@ -1503,6 +1505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 796928427}
   _item: {fileID: 448866866}
+  _mainController: {fileID: 963194230}
   _interactionPrompt: '[E]'
 --- !u!54 &796928431
 Rigidbody:
@@ -1754,7 +1757,7 @@ GameObject:
   - component: {fileID: 1294070169}
   - component: {fileID: 1294070168}
   - component: {fileID: 1294070167}
-  - component: {fileID: 1294070171}
+  - component: {fileID: 1294070172}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Ground
@@ -1827,8 +1830,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1294070171
-MeshCollider:
+--- !u!65 &1294070172
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1837,10 +1840,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1332847272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1962,6 +1964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1332847274}
   _item: {fileID: 1652901544}
+  _mainController: {fileID: 963194230}
   _interactionPrompt: '[E]'
 --- !u!54 &1332847279
 Rigidbody:
@@ -2330,7 +2333,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062144951}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.5, y: 3, z: 2.5}
@@ -2354,6 +2357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 2062144953}
   _item: {fileID: 490452951}
+  _mainController: {fileID: 963194230}
   _interactionPrompt: '[E]'
 --- !u!54 &2062144957
 Rigidbody:

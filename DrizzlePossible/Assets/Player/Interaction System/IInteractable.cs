@@ -6,6 +6,7 @@ public interface IInteractable
 {
     public string InteractionPrompt { get; }
     public bool IsOpen { get; }
+    public string GetItemName { get; }
 
     public void Open();
     public void Grab();

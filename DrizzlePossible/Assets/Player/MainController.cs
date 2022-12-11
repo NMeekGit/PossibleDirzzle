@@ -10,8 +10,13 @@ public class MainController : MonoBehaviour
     private List<int> usedNums = new List<int>();
     private List<GameObject> itemList = new List<GameObject>();
     private int _count = 0;
+    private string _itemName;
+    private bool _isGrabbing;
 
-    void Start() {
+    public string ItemName { set { _itemName = value; } }
+    public bool IsGrabbing { set { _isGrabbing = value; } }
+
+    void Awake() {
         while (usedNums.Count < _items.Length) {
             UniqueNums();
         }
@@ -27,4 +32,19 @@ public class MainController : MonoBehaviour
         if (!usedNums.Contains(ranNum)) 
             usedNums.Add(ranNum);
     }
+
+    void Update() {
+
+        CheckItem();
+    }
+
+    void CheckItem() {
+
+        if (_isGrabbing) {
+            Debug.Log("[MAIN] Grabbing " + _itemName);
+            _isGrabbing = false;
+        }
+
+    }
+
 }

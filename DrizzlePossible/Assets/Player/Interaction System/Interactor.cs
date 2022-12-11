@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class Interactor : MonoBehaviour
 {
     PlayerInput playerInput;
+
+    public MainController _mainController;
     public PlayerStateMachine _playerMachine;
     public Transform _interactionPoint;
     public float _interactionPointRadius;
@@ -40,6 +42,7 @@ public class Interactor : MonoBehaviour
                 }
                 if (_playerMachine.IsSelectPressed && _interactable.IsOpen && Time.time > nextTime) {
                     _interactable.Grab();
+                    _mainController.ItemName = _interactable.GetItemName;
                 }
             }
         } else {

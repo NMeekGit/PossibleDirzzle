@@ -10,6 +10,7 @@ public class Item : MonoBehaviour, IInteractable
     public string _interactionPrompt;
     
     private bool _isOpen = false;
+    private bool _grabbed = false;
     private string _itemName;
 
     public string InteractionPrompt => _interactionPrompt;
@@ -18,7 +19,7 @@ public class Item : MonoBehaviour, IInteractable
 
     void Start() {
         _item.SetActive(false);
-        _itemName = _item.transform.GetChild(0).gameObject.name;
+        _itemName = _item.transform.GetChild(0).gameObject.tag;
     }
 
     public void Open() {
@@ -29,7 +30,10 @@ public class Item : MonoBehaviour, IInteractable
 
     public void Grab() {
         _item.SetActive(false);
-        _mainController.IsGrabbing = true;
+        if (!_grabbed) {
+            _mainController.IsGrabbing = true;
+            _grabbed = true;
+        }
     }
 
     public bool Interact (Interactor interactor) {

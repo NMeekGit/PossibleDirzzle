@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -940,6 +940,7 @@ MonoBehaviour:
   rotationFactorPerFrame: 15
   speed: 3
   runMultiplier: 2
+  _health: 0
   maxJumpHeight: 2
   maxJumpTime: 0.5
   fireRate: 0.5
@@ -1661,15 +1662,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 919132149155446097, guid: 03bdc186012c46a96bff0b403120e572, type: 3}
-  - {fileID: 919132149155446097, guid: 3989519a3ebbdd511abb3169aed7a814, type: 3}
-  - {fileID: 919132149155446097, guid: 844ae54438d04acb5876167be293615a, type: 3}
-  - {fileID: 919132149155446097, guid: 025bbd41d2a6f8886bd6a643c9df1a02, type: 3}
+  - {fileID: 5820478074103334780, guid: 353a20347c196424db5473246dbf45ff, type: 3}
+  - {fileID: 8708599618222968570, guid: ba31cd5817245dc4e95f0b721b8e2554, type: 3}
+  - {fileID: 641207844419799123, guid: 166991da6808bc94e831b56d4743d638, type: 3}
+  - {fileID: 4029731338392122471, guid: ac513166ced97f74995a38287a4d692f, type: 3}
   _spawnPoints:
   - {fileID: 448866867}
   - {fileID: 490452952}
   - {fileID: 1652901545}
   - {fileID: 627074053}
+  _player: {fileID: 408936655}
+  _apple: {fileID: 9125830213119438698, guid: 353a20347c196424db5473246dbf45ff, type: 3}
+  _bacon: {fileID: 1422351403616142896, guid: ba31cd5817245dc4e95f0b721b8e2554, type: 3}
+  _pizza: {fileID: 4974809305316365641, guid: ac513166ced97f74995a38287a4d692f, type: 3}
+  _cupcake: {fileID: 1479153280522421650, guid: 166991da6808bc94e831b56d4743d638, type: 3}
+  _damage: 0
 --- !u!1 &1213105868
 GameObject:
   m_ObjectHideFlags: 0

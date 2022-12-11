@@ -30,6 +30,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float rotationFactorPerFrame = 15.0f;
     public float speed = 5.0f;
     public float runMultiplier = 3.0f;
+    [SerializeField] private float _health = 0f;
 
     bool isJumpPressed = false;
     float initialJumpVelocity;
@@ -68,12 +69,13 @@ public class PlayerStateMachine : MonoBehaviour
     public float AppliedMovementX { get { return appliedMovement.x; } set { appliedMovement.x = value; } }
     public float AppliedMovementZ { get { return appliedMovement.z; } set { appliedMovement.z = value; } }
     public float RunMultiplier { get { return runMultiplier; } }
-    public float Speed { get { return speed; } }
+    public float Speed { get { return speed; } set { speed = value; } }
+    public float Health { get { return _health; } set { _health = value; } }
     public float InitialJumpVelocity { get { return initialJumpVelocity; } }
     public float GroundedGravity { get { return groundedGravity; } }
     public float Gravity { get { return gravity; } }
     public float NextFire { get { return nextFire; } set { nextFire = value; } }
-    public float FireRate { get { return fireRate; } }
+    public float FireRate { get { return fireRate; } set { fireRate = value; }}
 
     void Awake()
     {

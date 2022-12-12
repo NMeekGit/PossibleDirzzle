@@ -13,6 +13,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Transform firePoint;
     public Transform bulletParent;
     public Camera cam;
+    public MainController _mainController;
 
     int isWalkingHash;
     int isRunningHash;
@@ -153,6 +154,16 @@ public class PlayerStateMachine : MonoBehaviour
         return vectorRotatedToCameraSpace;
     }
 
+    void OnCollisionEnter( Collsion coll) {
+
+        GameObject enemy = coll.gameObject;
+
+        if (enemy.tag == "Enemy1") 
+            _health -= _mainController.Enemy1Damage;
+        else if (enemy.tag == "Enemy2")
+            _health -= _mainController.Enemy2Damage;
+
+    }
     void HandleRotation()
     {
         Vector3 positionToLookAt;

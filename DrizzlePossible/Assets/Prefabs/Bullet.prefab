@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9101516357412202707}
   - component: {fileID: 4162737258855391708}
   - component: {fileID: 5851636053849159097}
+  - component: {fileID: 5109099792067296423}
   m_Layer: 6
   m_Name: Bullet
   m_TagString: bullet
@@ -112,3 +113,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDecal: {fileID: 4230107399391331712, guid: a4c8242f3ff5d35768250fed193cadf6, type: 3}
   speed: 50
+--- !u!114 &5109099792067296423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182047741053681882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3ccf1b6b075da49afb7a6f92b1bd5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: d79babdde024efd4aabd20483fef0d7a, type: 3}
+  volume: 0.5

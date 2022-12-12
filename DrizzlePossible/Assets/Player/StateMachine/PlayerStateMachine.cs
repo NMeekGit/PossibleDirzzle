@@ -154,7 +154,7 @@ public class PlayerStateMachine : MonoBehaviour
         return vectorRotatedToCameraSpace;
     }
 
-    void OnCollisionEnter( Collsion coll) {
+    void OnCollisionEnter( Collision coll) {
 
         GameObject enemy = coll.gameObject;
 

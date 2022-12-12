@@ -22,7 +22,6 @@ public class MainController : MonoBehaviour
     [SerializeField] private float _damage;
     public string ItemName { set { _itemName = value; } }
     public bool IsGrabbing { set { _isGrabbing = value; } }
-    public float Damage { get { return Damage; } }
 
     void Awake() {
         while (usedNums.Count < _items.Length) {
@@ -78,7 +77,7 @@ public class MainController : MonoBehaviour
                 _itemTracker.NumCupcake += 1;
                 break;
             case "Pizza":
-                _damage = _pizza.ApplyPowerUp;
+                _player.Damage += _pizza.ApplyPowerUp;
                 _itemTracker.NumPizza += 1;
                 break;
             default:

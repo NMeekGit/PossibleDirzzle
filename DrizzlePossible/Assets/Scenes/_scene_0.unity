@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1050,6 +1050,7 @@ GameObject:
   - component: {fileID: 408849581}
   - component: {fileID: 408849580}
   - component: {fileID: 408849579}
+  - component: {fileID: 408849584}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1151,6 +1152,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &408849584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408849578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09421213f4b17cedc81edbfb9ac97613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 408936655}
+  _health: 100
 --- !u!1 &408936648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100124, guid: 535511bb156e7f54f83f305d96a1c4ce, type: 3}
@@ -1194,6 +1209,7 @@ MonoBehaviour:
   speed: 3
   runMultiplier: 2
   _health: 0
+  _damage: 15
   maxJumpHeight: 2
   maxJumpTime: 0.5
   fireRate: 0.5

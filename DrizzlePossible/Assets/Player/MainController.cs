@@ -19,10 +19,12 @@ public class MainController : MonoBehaviour
     [SerializeField] private Bacon _bacon;
     [SerializeField] private Pizza _pizza;
     [SerializeField] private Cupcake _cupcake;
-    [SerializeField] private float _damage;
+    [SerializeField] private float _enemy1Damage;
+    [SerializeField] private float _enemy2Damage;
     public string ItemName { set { _itemName = value; } }
     public bool IsGrabbing { set { _isGrabbing = value; } }
-    public float Damage { get { return Damage; } }
+    public float Enemy1Damage { get { return _enemy1Damage; } }
+    public float Enemy2Damage { get { return _enemy2Damage; } }
 
     void Awake() {
         while (usedNums.Count < _items.Length) {
@@ -78,7 +80,7 @@ public class MainController : MonoBehaviour
                 _itemTracker.NumCupcake += 1;
                 break;
             case "Pizza":
-                _damage = _pizza.ApplyPowerUp;
+                _player.Damage += _pizza.ApplyPowerUp;
                 _itemTracker.NumPizza += 1;
                 break;
             default:

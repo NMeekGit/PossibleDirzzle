@@ -29,6 +29,9 @@ public class EnemyBehavior : MonoBehaviour
 	public float jumpStrength = 10f;
 	Vector3 jumpTarget;
 	public float jumpScalar = 0.5f;
+	private NavMeshAgent agent;
+	bool isGrounded = true;
+	bool agentStatus = true;
 
 	//Known Bug: Enemy just walks... forward?
 	
@@ -38,6 +41,8 @@ public class EnemyBehavior : MonoBehaviour
 	    {
 	        enemy = GetComponent<NavMeshAgent>();
 	        player = GameObject.FindWithTag("Player");
+			agent = GetComponent<NavMeshAgent>();
+			rb = GetComponent<Rigidbody>();
 	        InvokeRepeating("randomWanderPosition",wanderPositionDelay,wanderPositionDelay);
 
 	    }
@@ -57,7 +62,10 @@ public class EnemyBehavior : MonoBehaviour
 			case EnemyState.Attack:
 			//After attacking, the agent should switch back to Idle state, so it can check for the player again.
 				Attack();
-				_currentState = EnemyState.Chase;
+				if (agentStatus)
+				{
+					_currentState = EnemyState.Chase;
+				}
 				break;
 			default:
 			//Here just in case
@@ -110,16 +118,28 @@ public class EnemyBehavior : MonoBehaviour
 	//Check time delay
 	if (Time.time >lastJump - jumpDelay)
 		{
-			//Grab player coordinates
-			//jumpTarget = player.transform.position;
-			//Aim a distance from the player, scales with atk distance
-			//jumpTarget.y = jumpTarget.y + (jumpScalar * attackRange);
-			//Jump at the player
-			//rb.Velocity = Vector3.up*jumpStrength;
-			//Reset delay timer
-			//lastJump = Time.time;
-		}
+			
+
+        }
 	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+        if (collision.collider != null && collision.collider.tag == "Ground")
+		{
+			if (agentStatus == false)
+			{
+				agent.updatePosition = true;
+				agent.updateRotation = true;
+				agent.isStopped = false;
+				agentStatus = true;
+			}
+            isGrounded = true;
+        }
+
+
+    }
+
 }
 
 

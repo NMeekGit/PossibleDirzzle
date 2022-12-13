@@ -13,6 +13,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Transform firePoint;
     public Transform bulletParent;
     public Camera cam;
+    public MainController _mainController;
 
     int isWalkingHash;
     int isRunningHash;
@@ -30,7 +31,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float rotationFactorPerFrame = 15.0f;
     public float speed = 5.0f;
     public float runMultiplier = 3.0f;
-    [SerializeField] private float _health = 0f;
+    [SerializeField] private float _health = 100f;
+    [SerializeField] private float _damage = 15f;
 
     bool isJumpPressed = false;
     float initialJumpVelocity;
@@ -71,6 +73,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float RunMultiplier { get { return runMultiplier; } }
     public float Speed { get { return speed; } set { speed = value; } }
     public float Health { get { return _health; } set { _health = value; } }
+    public float Damage { get { return _damage; } set { _damage = value; } }
     public float InitialJumpVelocity { get { return initialJumpVelocity; } }
     public float GroundedGravity { get { return groundedGravity; } }
     public float Gravity { get { return gravity; } }
@@ -151,6 +154,16 @@ public class PlayerStateMachine : MonoBehaviour
         return vectorRotatedToCameraSpace;
     }
 
+    void OnCollisionEnter( Collision coll) {
+
+        GameObject enemy = coll.gameObject;
+
+        if (enemy.tag == "Enemy1") 
+            _health -= _mainController.Enemy1Damage;
+        else if (enemy.tag == "Enemy2")
+            _health -= _mainController.Enemy2Damage;
+
+    }
     void HandleRotation()
     {
         Vector3 positionToLookAt;

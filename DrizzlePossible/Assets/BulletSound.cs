@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BulletSound : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip clip;
-    public float volume = 0.5f;
+
     void Start()
     {
-        audioSource.PlayOneShot(clip, volume);
+        SoundManagerScript.PlaySound("fire");
+        Debug.Log("BulletShot");
     }
 
     // Update is called once per frame

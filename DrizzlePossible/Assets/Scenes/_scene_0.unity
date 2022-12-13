@@ -1095,6 +1095,9 @@ MonoBehaviour:
   _player: {fileID: 408936655}
   _coin: {fileID: 7153028956550673132, guid: 7b8e89f7bfe32a54c9bcd2348e1225c6, type: 3}
   _health: 100
+  healthScalar: 1
+  startingHealth: 10
+  enemyDamage: 5
 --- !u!1 &408936648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100124, guid: 535511bb156e7f54f83f305d96a1c4ce, type: 3}
@@ -1372,6 +1375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427815439}
   - component: {fileID: 427815438}
+  - component: {fileID: 427815440}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1431,6 +1435,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427815440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427815437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ebfafe0f397f45b4e032abd48ee5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &448866867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 448866867, guid: 8388c4bbf24cb4d4dac2f8f4f3d735ea, type: 3}

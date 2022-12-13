@@ -9,6 +9,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float _health;
 
     public float Health { get { return _health; } set { _health = value; } }
+    public float healthScalar = 1f;
+    public float startingHealth = 10f;
+    public float enemyDamage = 5f;
+
+    void Start()
+    {
+        _health = startingHealth + (Time.time / 100000 * healthScalar);
+    }
 
     void Update() {
         
@@ -25,8 +33,16 @@ public class EnemyHealth : MonoBehaviour
         if (coll.gameObject.tag == "bullet") {
 
             Debug.Log("[Enemy] Hit");
-
+            SoundManagerScript.PlaySound("enemyhit");
             _health -= _player.Damage;
+
+        }
+        if (coll.gameObject.tag == "Player")
+        {
+
+            Debug.Log("[player] Hit");
+            SoundManagerScript.PlaySound("death");
+            _player.Health -= enemyDamage;
 
         }
     }

@@ -4,12 +4,12 @@
 ## Current TODO
 ---
 
-- [ ] Load World
+- [x] Load World
 - [x] Player Input Controller
 - [ ] Enemy AI
 - [x] Weapon Functionality
-- [ ] Currency Drop
-- [ ] PowerUp Drop
-- [ ] PowerUp Calculations
+- [x] Currency Drop
+- [x] PowerUp Drop
+- [x] PowerUp Calculations
 - [x] Camera Movement
 - [x] Item Interaction

@@ -118,19 +118,7 @@ public class EnemyBehavior : MonoBehaviour
 	//Check time delay
 	if (Time.time >lastJump - jumpDelay)
 		{
-			jumpTarget = transform.forward;
-			jumpTarget.y = jumpTarget.y + jumpScalar;
-            //Disable nav mesh agent real quick
-            agent.SetDestination(transform.position);
-            // disable the agent
-            agent.updatePosition = false;
-            agent.updateRotation = false;
-            agent.isStopped = true;
-			agentStatus = false;
-            rb.isKinematic = false;
-            //rb.useGravity = true;
-            rb.AddRelativeForce(jumpTarget * jumpStrength, ForceMode.Impulse);
-			isGrounded = false;
+			
 
         }
 	}

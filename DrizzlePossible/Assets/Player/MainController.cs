@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour
     [SerializeField] private PlayerStateMachine _player;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private ItemTracker _itemTracker;
+    [SerializeField] private CoinTracker _coinTracker;
     [SerializeField] private Apple _apple;
     [SerializeField] private Bacon _bacon;
     [SerializeField] private Pizza _pizza;
@@ -25,6 +26,7 @@ public class MainController : MonoBehaviour
     public bool IsGrabbing { set { _isGrabbing = value; } }
     public float Enemy1Damage { get { return _enemy1Damage; } }
     public float Enemy2Damage { get { return _enemy2Damage; } }
+    public float Coin { get { return _coinTracker.NumCoin; } set { _coinTracker.NumCoin = value; } }
 
     void Awake() {
         while (usedNums.Count < _items.Length) {
@@ -50,6 +52,7 @@ public class MainController : MonoBehaviour
         CheckItem();
         _healthBar.SetHealth();
         _itemTracker.SetItemCount();
+        _coinTracker.SetCoinTracker();
     }
 
     void CheckItem() {
@@ -86,6 +89,12 @@ public class MainController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void AddCoin() {
+
+        _coinTracker.NumCoin += 1;
+
     }
 
 }

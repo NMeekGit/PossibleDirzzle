@@ -17,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour
 	EnemyState _currentState = EnemyState.Idle; // Enemy State
 	NavMeshAgent enemy; // Nav Mesh enemy object
 	GameObject player; // player object
+
 	public int aggroRange = 10; // When player is within this distance, chase the player
     public int attackRange = 5; // distance away from the agent where the agent will attempt to attack
     public float wanderPositionDelay = 2.0f; // Time between wander destination calculations
@@ -29,6 +30,12 @@ public class EnemyBehavior : MonoBehaviour
 	public float jumpStrength = 10f;
 	Vector3 jumpTarget;
 	public float jumpScalar = 0.5f;
+	private NavMeshAgent agent;
+	bool isGrounded = true;
+	bool agentStatus = true;
+	public float AttackingSpeed = 8.0f;
+	public float PatrolingSpeed = 2.0f;
+	public float ChasingSpeed = 5.0f;
 
 	//Known Bug: Enemy just walks... forward?
 	
@@ -38,6 +45,8 @@ public class EnemyBehavior : MonoBehaviour
 	    {
 	        enemy = GetComponent<NavMeshAgent>();
 	        player = GameObject.FindWithTag("Player");
+			agent = GetComponent<NavMeshAgent>();
+			rb = GetComponent<Rigidbody>();
 	        InvokeRepeating("randomWanderPosition",wanderPositionDelay,wanderPositionDelay);
 
 	    }
@@ -57,7 +66,6 @@ public class EnemyBehavior : MonoBehaviour
 			case EnemyState.Attack:
 			//After attacking, the agent should switch back to Idle state, so it can check for the player again.
 				Attack();
-				_currentState = EnemyState.Chase;
 				break;
 			default:
 			//Here just in case
@@ -75,6 +83,7 @@ public class EnemyBehavior : MonoBehaviour
 	
 	void Patrol(){
 		//agent will be given a new random wander position every wanderPositionDelay seconds
+		enemy.speed = PatrolingSpeed;
 		enemy.SetDestination(wanderPosition);
 	}
 	
@@ -90,8 +99,9 @@ public class EnemyBehavior : MonoBehaviour
 	}
 	
 	void ChasePlayer(){
-	//Set enemy location to the player. Nav agent will navigate the enemy toward the player
-	enemy.SetDestination(player.transform.position);
+		enemy.speed = ChasingSpeed;
+        //Set enemy location to the player. Nav agent will navigate the enemy toward the player
+        enemy.SetDestination(player.transform.position);
 	//Check if the player is within attacking range
 	if (Vector3.Distance (this.transform.position, player.transform.position) < attackRange){
 			_currentState = EnemyState.Attack;
@@ -104,22 +114,17 @@ public class EnemyBehavior : MonoBehaviour
 	}
 	
 	void Attack(){
-	//Jump at the player 
-	//Small delay before jumping
+		//Sprint at the player until player leaves aggro range
+		enemy.speed = AttackingSpeed;
+        if (Vector3.Distance(this.transform.position, player.transform.position) > attackRange)
+        {
+            _currentState = EnemyState.Chase;
+        }
 
-	//Check time delay
-	if (Time.time >lastJump - jumpDelay)
-		{
-			//Grab player coordinates
-			//jumpTarget = player.transform.position;
-			//Aim a distance from the player, scales with atk distance
-			//jumpTarget.y = jumpTarget.y + (jumpScalar * attackRange);
-			//Jump at the player
-			//rb.Velocity = Vector3.up*jumpStrength;
-			//Reset delay timer
-			//lastJump = Time.time;
-		}
-	}
+    }
+
+
+
 }
 
 

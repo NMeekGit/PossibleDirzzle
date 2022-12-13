@@ -12,6 +12,7 @@ public class Interactor : MonoBehaviour
     public Transform _interactionPoint;
     public float _interactionPointRadius;
     public LayerMask _interactableMask;
+    public LayerMask _coinMask;
     public InteractionPromptUI _interactionPromptUI;
 
     public float waitTime = 1f;
@@ -19,6 +20,7 @@ public class Interactor : MonoBehaviour
 
     private readonly Collider[] _colliders = new Collider[3];
     public int _numFound;
+    public int _coinFound;
 
     private IInteractable _interactable;
 
@@ -30,19 +32,24 @@ public class Interactor : MonoBehaviour
 
             if (_interactable != null) {
                 if (!_interactionPromptUI.IsDisplayed) {
-                    _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
+                    _interactionPromptUI.SetUp(_interactable.InteractionPrompt + _interactable.Payout.ToString());
                 }
-                if (_playerMachine.IsSelectPressed) {
+                if (_playerMachine.IsSelectPressed && _interactable.GetObjectName == "chest") {
                     _interactable.Interact(this);
 
-                    if(!_interactable.IsOpen) {
-                        _interactable.Open();
-                        nextTime = Time.time + waitTime;
-                    }
+                        if(!_interactable.IsOpen) {
+                            _interactable.Open();
+                            nextTime = Time.time + waitTime;
+                        }
+                    
+                        if (_playerMachine.IsSelectPressed && _interactable.IsOpen && Time.time > nextTime) {
+                            _interactable.Grab();
+                            _mainController.ItemName = _interactable.GetItemName;
+                        }
                 }
-                if (_playerMachine.IsSelectPressed && _interactable.IsOpen && Time.time > nextTime) {
+                else if (_interactable.GetObjectName == "atm" && _playerMachine.IsSelectPressed) {
                     _interactable.Grab();
-                    _mainController.ItemName = _interactable.GetItemName;
+                    _mainController.ItemName = _interactable.GetObjectName;
                 }
             }
         } else {
@@ -54,6 +61,16 @@ public class Interactor : MonoBehaviour
             if (_interactionPromptUI.IsDisplayed) {
                 _interactionPromptUI.Close();
             }
+        }
+
+        _coinFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _coinMask);
+
+        if (_coinFound > 0) {
+
+            _mainController.AddCoin();
+            FindObjectOfType<AudioManager>().Play("Coin");
+            Destroy(_colliders[0].gameObject);
+
         }
     }
 }

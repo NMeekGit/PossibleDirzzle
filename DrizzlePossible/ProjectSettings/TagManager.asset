@@ -7,10 +7,20 @@ TagManager:
   - Ground
   - Enemy
   - Apple
+<<<<<<< HEAD
   - Cupcake
   - Bacon
   - Pizza
   - bullet
+=======
+  - Pizza
+  - Bacon
+  - Cupcake
+  - bullet
+  - coin
+  - atm
+  - chest
+>>>>>>> 043dfbf8ae1b62ae95548a2c9d7004a2ce11f155
   layers:
   - Default
   - TransparentFX
@@ -21,7 +31,7 @@ TagManager:
   - Projectile
   - Player
   - Interactable
-  - 
+  - Coin
   - 
   - 
   - 

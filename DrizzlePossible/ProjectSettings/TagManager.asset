@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Apple
+  - Cupcake
+  - Bacon
+  - Pizza
+  - bullet
   layers:
   - Default
   - TransparentFX

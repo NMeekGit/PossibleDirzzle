@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private PlayerStateMachine _player;
+    [SerializeField] private GameObject _coin;
     [SerializeField] private float _health;
 
     public float Health { get { return _health; } set { _health = value; } }
@@ -13,7 +14,8 @@ public class EnemyHealth : MonoBehaviour
         
         if (_health <= 0 ) {
 
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+            Instantiate(_coin, this.gameObject.transform.position, Quaternion.identity);
 
         }
     }

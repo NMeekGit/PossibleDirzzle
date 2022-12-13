@@ -37,6 +37,7 @@ public class PlayerWalkState : PlayerBaseState
             RaycastHit hit;
             GameObject bullet = GameObject.Instantiate(Ctx.BulletPrefab, Ctx.FirePointTransform.position, Quaternion.identity, Ctx.BulletParent);
             BulletController bulletController = bullet.GetComponent<BulletController>();
+            Ctx.AudioManager.Play("Bullet");
             if (Physics.Raycast(Ctx.CameraTransform.position, Ctx.CameraTransform.forward, out hit, Mathf.Infinity)) {
                 bulletController.target = hit.point;
                 bulletController.hit = true;

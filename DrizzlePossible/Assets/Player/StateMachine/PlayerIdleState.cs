@@ -35,6 +35,7 @@ public class PlayerIdleState : PlayerBaseState
             Ctx.NextFire = Time.time + Ctx.FireRate;
             RaycastHit hit;
             GameObject bullet = GameObject.Instantiate(Ctx.BulletPrefab, Ctx.FirePointTransform.position, Quaternion.identity, Ctx.BulletParent);
+            Ctx.AudioManager.Play("Bullet");
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (Physics.Raycast(Ctx.CameraTransform.position, Ctx.CameraTransform.forward, out hit, Mathf.Infinity)) {
                 bulletController.target = hit.point;

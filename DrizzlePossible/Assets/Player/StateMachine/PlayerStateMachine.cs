@@ -8,6 +8,7 @@ public class PlayerStateMachine : MonoBehaviour
     PlayerInput playerInput;
     CharacterController characterController;
     Animator animator;
+    AudioManager _audioManager;
 
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -51,6 +52,7 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerBaseState CurrentState { get { return _currentState;  } set { _currentState = value; } }
     public CharacterController CharacterController { get { return characterController; } }
     public Animator Animator { get { return animator; } }
+    public AudioManager AudioManager { get {return _audioManager; } }
     public GameObject BulletPrefab { get { return bulletPrefab; } }
     public Transform FirePointTransform { get { return firePoint; } }
     public Transform BulletParent { get { return bulletParent; } }
@@ -85,6 +87,7 @@ public class PlayerStateMachine : MonoBehaviour
         playerInput = new PlayerInput();
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        _audioManager = FindObjectOfType<AudioManager>();
 
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
@@ -158,12 +161,13 @@ public class PlayerStateMachine : MonoBehaviour
 
         GameObject enemy = coll.gameObject;
 
-        if (enemy.tag == "Enemy1") 
+        if (enemy.tag == "Enemy1") {
             _health -= _mainController.Enemy1Damage;
-        else if (enemy.tag == "Enemy2")
+            Debug.Log("[Player] hit"); }
+        else if (enemy.tag == "Enemy2") {
             _health -= _mainController.Enemy2Damage;
-
-    }
+            Debug.Log("[Player] hit"); }
+    } 
     void HandleRotation()
     {
         Vector3 positionToLookAt;

@@ -7,12 +7,12 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField] private MainController _mainController;
 	public GameObject Enemy;
 	public float SpawnerScalar = 1f;
-	public float spawningLimit = 10;
+	public float spawningLimit = 10f;
 	public float enemiesAlive = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _mainController.EnemiesAlive = 0;
     }
 
     // Update is called once per frame

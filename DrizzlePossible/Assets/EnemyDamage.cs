@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface EnemyDamage
+public class EnemyDamage : MonoBehaviour, IInteractable
 {
     [SerializeField] private MainController _mainController;
-     private string _prompt;
+    [SerializeField] private PlayerStateMachine _player;
+    private string _prompt;
     private float _payout;
 
     private string _itemName;
@@ -21,21 +22,18 @@ public interface EnemyDamage
     public float Payout => _payout;
 
     void Start(){
-     _objectName = this.gameObject.tag;
-     itemName = "";
-     prompt = "";
-     _payout = 0;
-
-
+         _objectName = this.gameObject.tag;
+         _itemName = "";
+         _prompt = "";
+         _payout = 0;
     }
+    public void Open() {}
     public void Grab() {
 
-        if (_objectName == "Player") {
-            Destroy(this.gameObject);
-            _mainController.EnemiesAlive -= 1;
-            _mainController.PlayerHealth -= _mainController.EnemyDamage;
+        Destroy(this.gameObject);
+        _mainController.EnemiesAlive -= 1;
+        _player.Health -= _mainController.EnemyDamage;
             
-        }
     }
 
     public bool Interact (Interactor interactor) { return true; }

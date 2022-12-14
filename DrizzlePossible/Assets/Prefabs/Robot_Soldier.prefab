@@ -2614,10 +2614,14 @@ MonoBehaviour:
   _coinMask:
     serializedVersion: 2
     m_Bits: 16
+  _enemyMask:
+    serializedVersion: 2
+    m_Bits: 512
   _interactionPromptUI: {fileID: 0}
   waitTime: 1
   _numFound: 0
   _coinFound: 0
+  _enemyNum: 0
 --- !u!114 &5912292709260654149
 MonoBehaviour:
   m_ObjectHideFlags: 0

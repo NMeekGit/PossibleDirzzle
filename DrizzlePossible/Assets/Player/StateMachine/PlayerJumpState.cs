@@ -47,6 +47,7 @@ public class PlayerJumpState : PlayerBaseState
     {
         Ctx.IsJumping = true;
         Ctx.Animator.SetBool(Ctx.IsJumpingHash, true);
+        Ctx.AudioManager.Play("Jump");
         Ctx.CurrentMovementY = Ctx.InitialJumpVelocity;
         Ctx.AppliedMovementY = Ctx.InitialJumpVelocity;
     }

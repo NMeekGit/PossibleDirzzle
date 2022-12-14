@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] private MainController _mainController;
     [SerializeField] private PlayerStateMachine _player;
     [SerializeField] private GameObject _coin;
     [SerializeField] private float _health;
@@ -16,7 +17,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-    	
         _health = startingHealth + (Time.time / 100000 * healthScalar);
     }
 
@@ -38,14 +38,6 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("[Enemy] Hit");
             SoundManagerScript.PlaySound("enemyhit");
             _health -= _player.Damage;
-
-        }
-        if (coll.gameObject.tag == "Player")
-        {
-
-            Debug.Log("[player] Hit");
-            SoundManagerScript.PlaySound("death");
-            _player.Health -= enemyDamage;
 
         }
     }

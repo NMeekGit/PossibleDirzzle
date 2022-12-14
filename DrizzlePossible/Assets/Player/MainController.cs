@@ -22,11 +22,18 @@ public class MainController : MonoBehaviour
     [SerializeField] private Cupcake _cupcake;
     [SerializeField] private float _enemy1Damage;
     [SerializeField] private float _enemy2Damage;
+    [SerializeField] private float _enemiesAlive;
+    [SerializeField] private float _enemyDamage = 10;
     public string ItemName { set { _itemName = value; } }
     public bool IsGrabbing { set { _isGrabbing = value; } }
     public float Enemy1Damage { get { return _enemy1Damage; } }
     public float Enemy2Damage { get { return _enemy2Damage; } }
     public float Coin { get { return _coinTracker.NumCoin; } set { _coinTracker.NumCoin = value; } }
+    public float EnemiesAlive { get { return _enemiesAlive; } set { _enemiesAlive = value; } }
+    public float PlayerHealth { get { return _player.Health;} set {_player.Health = value;}}
+    public float EnemyDamage { get { return _enemyDamage;} set {_enemyDamage = value;}}
+
+    
 
     void Awake() {
         while (usedNums.Count < _items.Length) {

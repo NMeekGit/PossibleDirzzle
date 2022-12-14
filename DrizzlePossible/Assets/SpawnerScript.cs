@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
 {
+    [SerializeField] private MainController _mainController;
 	public GameObject Enemy;
 	public float SpawnerScalar = 1f;
 	public float spawningLimit = 10;
@@ -18,8 +19,8 @@ public class SpawnerScript : MonoBehaviour
     void Update()
     {
         spawningLimit = (Time.time/100000)*SpawnerScalar + spawningLimit;
-        if (enemiesAlive < spawningLimit){
-        	enemiesAlive++;
+        if (_mainController.EnemiesAlive < spawningLimit){
+        	_mainController.EnemiesAlive += 1;
         	Instantiate(Enemy, this.gameObject.transform.position, Quaternion.identity);
         }
     }

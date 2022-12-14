@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 8509662149128975992}
   m_Layer: 8
   m_Name: Chest_3_gold
-  m_TagString: Untagged
+  m_TagString: chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,3 +300,4 @@ MonoBehaviour:
   _item: {fileID: 8509662148645851773}
   _mainController: {fileID: 0}
   _interactionPrompt: '[E]'
+  _payout: 0

@@ -12,18 +12,21 @@ public class EnemyHealth : MonoBehaviour
     public float healthScalar = 1f;
     public float startingHealth = 10f;
     public float enemyDamage = 5f;
+    public SpawnerScript Spawner;
 
     void Start()
     {
+    	
         _health = startingHealth + (Time.time / 100000 * healthScalar);
     }
 
     void Update() {
         
         if (_health <= 0 ) {
-
+	    Instantiate(_coin, this.gameObject.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            Instantiate(_coin, this.gameObject.transform.position, Quaternion.identity);
+            Spawner.enemiesAlive--;
+
 
         }
     }

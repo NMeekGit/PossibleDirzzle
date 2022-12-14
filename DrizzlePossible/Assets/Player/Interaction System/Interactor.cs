@@ -13,14 +13,17 @@ public class Interactor : MonoBehaviour
     public float _interactionPointRadius;
     public LayerMask _interactableMask;
     public LayerMask _coinMask;
+    public LayerMask _enemyMask;
     public InteractionPromptUI _interactionPromptUI;
 
     public float waitTime = 1f;
     float nextTime;
 
     private readonly Collider[] _colliders = new Collider[3];
+    private readonly Collider[] _collidersEnemy = new Collider[5];
     public int _numFound;
     public int _coinFound;
+    public int _enemyNum;
 
     private IInteractable _interactable;
 
@@ -72,5 +75,14 @@ public class Interactor : MonoBehaviour
             Destroy(_colliders[0].gameObject);
 
         }
+
+        _enemyNum = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _collidersEnemy, _enemyMask);
+
+        if (_enemyNum > 0 ) {
+            _interactable = _collidersEnemy[0].GetComponent<IInteractable>();
+
+            _interactable.Grab();
+        }
+
     }
 }

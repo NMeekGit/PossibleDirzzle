@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorRtRearLeg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorRtRearLeg5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorRtFrontLeg5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorRtRearLeg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorRtFrontLeg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorRtFrontLeg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorLtRearLeg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorLtRearLeg5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorLtFrontLeg5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorLtRearLeg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorWeapon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193174}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: swarmWarriorLtFrontLeg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorTail5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorWeapon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193180}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorTail3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorTail4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193184}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorTail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorTail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorRtRearLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorRtRearLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorRtFrontLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorRtFrontLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorLtRearLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorLtFrontLeg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorLtRearLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorLtFrontLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,7 +867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorLtFrontLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6654514531255193210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_WarriorControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,8 @@ GameObject:
   - component: {fileID: 6654514532742576095}
   - component: {fileID: 6654514532742576094}
   - component: {fileID: 6654514532742576070}
-  m_Layer: 0
+  - component: {fileID: 2529472365438271693}
+  m_Layer: 9
   m_Name: PA_Warrior
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1104,13 +1105,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09421213f4b17cedc81edbfb9ac97613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _mainController: {fileID: 2277157007305158229, guid: 5b7b1e502ea9e7b2eb22dde14c7ad009, type: 3}
+  _player: {fileID: 5912292709260654173, guid: 7ad523dbb9682cb268a5b9136b351951, type: 3}
   _coin: {fileID: 7153028956550673132, guid: 7b8e89f7bfe32a54c9bcd2348e1225c6, type: 3}
   _health: 10
   healthScalar: 1
   startingHealth: 100
   enemyDamage: 5
   Spawner: {fileID: 1033581618996321736, guid: 456fe4b6a48ded65a9a058f6242d93f7, type: 3}
+--- !u!114 &2529472365438271693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654514531255161436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d59d4a3012d9284a10b637a109f2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainController: {fileID: 2277157007305158229, guid: 5b7b1e502ea9e7b2eb22dde14c7ad009, type: 3}
+  _player: {fileID: 5912292709260654173, guid: 7ad523dbb9682cb268a5b9136b351951, type: 3}
 --- !u!1 &6654514531255161438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6654514531255193214}
   - component: {fileID: 6654514531268763484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PA_Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}

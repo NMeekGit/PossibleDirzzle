@@ -42,7 +42,7 @@ public class Item : MonoBehaviour, IInteractable
             if (!_grabbed) {
                 _mainController.IsGrabbing = true;
                 _grabbed = true;
-                FindObjectOfType<AudioManager>().Play("PowerUp");
+                _mainController.AudioManager.Play("PowerUp");
             }
         }
     }

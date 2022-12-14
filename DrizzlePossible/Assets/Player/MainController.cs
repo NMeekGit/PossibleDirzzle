@@ -12,6 +12,7 @@ public class MainController : MonoBehaviour
     private int _count = 0;
     private string _itemName;
     private bool _isGrabbing;
+    AudioManager _audioManager;
     [SerializeField] private PlayerStateMachine _player;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private ItemTracker _itemTracker;
@@ -23,19 +24,21 @@ public class MainController : MonoBehaviour
     [SerializeField] private float _enemy1Damage;
     [SerializeField] private float _enemy2Damage;
     [SerializeField] private float _enemiesAlive;
-    [SerializeField] private float _enemyDamage = 10;
+    [SerializeField] private float _enemyDamage = 10f;
+    public AudioManager AudioManager { get { return _audioManager; } }
     public string ItemName { set { _itemName = value; } }
     public bool IsGrabbing { set { _isGrabbing = value; } }
     public float Enemy1Damage { get { return _enemy1Damage; } }
     public float Enemy2Damage { get { return _enemy2Damage; } }
     public float Coin { get { return _coinTracker.NumCoin; } set { _coinTracker.NumCoin = value; } }
     public float EnemiesAlive { get { return _enemiesAlive; } set { _enemiesAlive = value; } }
-    public float PlayerHealth { get { return _player.Health;} set {_player.Health = value;}}
-    public float EnemyDamage { get { return _enemyDamage;} set {_enemyDamage = value;}}
+    public float EnemyDamage { get { return _enemyDamage; } set { _enemyDamage = value; }}
 
     
 
     void Awake() {
+        _audioManager = FindObjectOfType<AudioManager>();
+
         while (usedNums.Count < _items.Length) {
             UniqueNums();
         }
@@ -46,6 +49,9 @@ public class MainController : MonoBehaviour
         }
 
         _healthBar.SetHealth();
+    }
+
+    void Start() {
     }
 
     void UniqueNums() {
@@ -100,7 +106,7 @@ public class MainController : MonoBehaviour
 
     public void AddCoin() {
 
-        _coinTracker.NumCoin += 1;
+        _coinTracker.NumCoin += 3;
 
     }
 
